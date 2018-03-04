@@ -20,3 +20,4 @@ Camera  | Rear 21 MP PDAF, dual-LED (dual tone) flash; Front 8 MP fixed-focus
 ## Not Working
 1. Mic
 2. IR
+3. Camera 😢
