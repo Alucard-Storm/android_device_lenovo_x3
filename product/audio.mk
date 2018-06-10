@@ -4,7 +4,8 @@ PRODUCT_PACKAGES += \
     audio.primary.msm8992 \
     audio_policy.msm8992 \
     audio.r_submix.default \
-    audio.usb.default
+    audio.usb.default \
+    audio_amplifier.msm8992
 
 # some extra tools
 PRODUCT_PACKAGES += \
