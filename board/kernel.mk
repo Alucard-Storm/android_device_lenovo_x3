@@ -13,5 +13,15 @@ BOARD_KERNEL_CMDLINE := console=tty60,115200,n8 androidboot.console=tty60 androi
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 
 ENABLE_CPUSETS := true
-
 TARGET_USES_64_BIT_BINDER := true
+
+
+# Enable dex-preoptimization to speed up first boot sequence
+ifeq ($(HOST_OS),linux)
+  ifneq ($(TARGET_BUILD_VARIANT),eng)
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := false
+      WITH_DEXPREOPT := true
+    endif
+  endif
+endif

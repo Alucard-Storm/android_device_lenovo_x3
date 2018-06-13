@@ -18,11 +18,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Enable sdcardfs
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sys.sdcardfs=true
-
-# RR dev
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.rr.maintainer=Alucard
-
+    
 # ADB
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.adb.secure=0 \
