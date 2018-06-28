@@ -1635,13 +1635,13 @@
 		<ctl name="DSP3 Firmware" value="Ez2Record" />
 		<ctl name="Input Ramp Up" value="8ms/6dB" />
 		<ctl name="IN1L Volume" value="16" />
-		<ctl name="IN2R Volume" value="14" />
+		<ctl name="IN2R Volume" value="16" />
 		<ctl name="IN2L Volume" value="16" />
 		<ctl name="AIF2TX1 Input 1 Volume" value="35" />
 		<ctl name="AIF2TX2 Input 1 Volume" value="35" />
-		<ctl name="IN2R Digital Volume" value="110" />
-		<ctl name="IN2L Digital Volume" value="110" />
-		<ctl name="IN1L Digital Volume" value="110" />
+		<ctl name="IN2R Digital Volume" value="128" />
+		<ctl name="IN2L Digital Volume" value="128" />
+		<ctl name="IN1L Digital Volume" value="128" />
 		<ctl name="DSP3L Input 1" value="IN2L" />
 		<ctl name="DSP3R Input 1" value="IN2R" />
 		<ctl name="DSP3 Aux 5" value="IN1L" />
@@ -1924,9 +1924,9 @@
 		<ctl name="DSP3 Firmware" value="Ez2HearHandset Tx" />
 		<ctl name="DRC2" value="0x00 0x18 0x09 0x33 0x00 0x10 0x02 0x52 0x00 0x00" />
 		<ctl name="IN1L Volume" value="14" />
-		<ctl name="IN2R Volume" value="12" />
-		<ctl name="IN1L Digital Volume" value="110" />
-		<ctl name="IN2R Digital Volume" value="108" />
+		<ctl name="IN2R Volume" value="14" />
+		<ctl name="IN1L Digital Volume" value="128" />
+		<ctl name="IN2R Digital Volume" value="128" />
 		<ctl name="IN1L HPF Switch" value="1" />
 		<ctl name="IN2R HPF Switch" value="1" />
 		<ctl name="ISRC1DEC2 Input" value="IN2R" />

@@ -1,5 +1,5 @@
 #Recovery
-RECOVERY_VARIANT := twrp
+#RECOVERY_VARIANT := twrp
 
 TW_THEME := portrait_hdpi
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
