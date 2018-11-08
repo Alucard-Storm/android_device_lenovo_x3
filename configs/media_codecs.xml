@@ -327,6 +327,38 @@ Only the three quirks included above are recognized at this point:
             <Feature name="secure-playback" required="true" />
             <Limit name="concurrent-instances" max="6" />
         </MediaCodec>
+        <!-- Audio Software  -->
+        <MediaCodec name="OMX.qti.audio.decoder.flac" type="audio/flac" />
+	<!-- DOLBY_UDC -->
+        <MediaCodec name="OMX.dolby.ac3.decoder" >
+            <Type name="audio/ac3" />
+            <Quirk name="needs-flush-before-disable" />
+            <Quirk name="requires-flush-complete-emulation" />
+            <Feature name="adaptive-playback" />
+        </MediaCodec>
+        <MediaCodec name="OMX.dolby.eac3.decoder" >
+            <Type name="audio/eac3" />
+            <Quirk name="needs-flush-before-disable" />
+            <Quirk name="requires-flush-complete-emulation" />
+            <Feature name="adaptive-playback" />
+        </MediaCodec>
+        <MediaCodec name="OMX.dolby.eac3_joc.decoder" >
+            <Type name="audio/eac3-joc" />
+            <Quirk name="needs-flush-before-disable" />
+            <Quirk name="requires-flush-complete-emulation" />
+            <Feature name="adaptive-playback" />
+        </MediaCodec>
+        <!-- DOLBY_UDC END -->
+        <MediaCodec name="OMX.accusilicon.dsd.dff.decoder" type="audio/dsd-dff" >
+           <Limit name="channel-count" max="8" />
+           <Limit name="sample-rate" ranges="8000-176400" />
+           <Limit name="bitrate" range="1-10000000" />
+        </MediaCodec>
+        <MediaCodec name="OMX.accusilicon.dsd.dsf.decoder" type="audio/dsd-dsf" >
+           <Limit name="channel-count" max="8" />
+           <Limit name="sample-rate" ranges="8000-176400" />
+           <Limit name="bitrate" range="1-10000000" />
+        </MediaCodec>
     </Decoders>
     <Include href="media_codecs_google_video.xml" />
     <Include href="media_codecs_ffmpeg.xml" />
