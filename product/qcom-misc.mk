@@ -31,3 +31,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # MTP
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.lenovo.series=Lenovo X3
+
+# LG V10 post boot for performance improvement
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/init.qcom.post_boot.sh:/system/etc/init.qcom.post_boot.sh
