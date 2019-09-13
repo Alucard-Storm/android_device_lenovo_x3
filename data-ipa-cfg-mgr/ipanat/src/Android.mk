@@ -10,9 +10,11 @@ LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 LOCAL_SRC_FILES := ipa_nat_drv.c \
                    ipa_nat_drvi.c
 
+ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
 LOCAL_CFLAGS := -DDEBUG
+endif
 LOCAL_MODULE := libipanat
 LOCAL_MODULE_TAGS := optional
 LOCAL_PRELINK_MODULE := false
-
+LOCAL_CLANG := true
 include $(BUILD_SHARED_LIBRARY)

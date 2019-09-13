@@ -1,5 +1,5 @@
 #
-# Copyright 2014 The Android Open Source Project
+# Copyright (C) 2018 The MoKee Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -31,46 +31,8 @@ include $(call all-subdir-makefiles,$(LOCAL_PATH))
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := wifi_symlinks
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_CLASS := FAKE
-LOCAL_MODULE_SUFFIX := -timestamp
-
-include $(BUILD_SYSTEM)/base_rules.mk
-
-$(LOCAL_BUILT_MODULE): ACTUAL_INI_FILE := /system/etc/wifi/WCNSS_qcom_cfg.ini
-$(LOCAL_BUILT_MODULE): WCNSS_INI_SYMLINK := $(TARGET_OUT)/etc/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini
-
-$(LOCAL_BUILT_MODULE): ACTUAL_BIN_FILE := /system/etc/wifi/WCNSS_qcom_wlan_nv.bin
-$(LOCAL_BUILT_MODULE): WCNSS_BIN_SYMLINK := $(TARGET_OUT)/etc/firmware/wlan/qca_cld/WCNSS_qcom_wlan_nv.bin
-
-$(LOCAL_BUILT_MODULE): ACTUAL_DAT_FILE := /system/etc/wifi/WCNSS_cfg.dat
-$(LOCAL_BUILT_MODULE): WCNSS_DAT_SYMLINK := $(TARGET_OUT)/etc/firmware/wlan/qca_cld/WCNSS_cfg.dat
-
-$(LOCAL_BUILT_MODULE): ACTUAL_MAC_FILE := /persist/wlan_mac.bin
-$(LOCAL_BUILT_MODULE): WCNSS_MAC_SYMLINK := $(TARGET_OUT)/etc/firmware/wlan/qca_cld/wlan_mac.bin
-
-
-$(LOCAL_BUILT_MODULE): $(LOCAL_PATH)/Android.mk
-$(LOCAL_BUILT_MODULE):
-	$(hide) echo "Making symlinks for wifi"
-	$(hide) mkdir -p $(dir $@)
-	$(hide) mkdir -p $(dir $(WCNSS_BIN_SYMLINK))
-	$(hide) rm -rf $@
-	$(hide) rm -rf $(WCNSS_INI_SYMLINK)
-	$(hide) ln -sf $(ACTUAL_INI_FILE) $(WCNSS_INI_SYMLINK)
-	$(hide) rm -rf $(WCNSS_BIN_SYMLINK)
-	$(hide) ln -sf $(ACTUAL_BIN_FILE) $(WCNSS_BIN_SYMLINK)
-	$(hide) rm -rf $(WCNSS_DAT_SYMLINK)
-	$(hide) ln -sf $(ACTUAL_DAT_FILE) $(WCNSS_DAT_SYMLINK)
-	$(hide) rm -rf $(WCNSS_MAC_SYMLINK)
-	$(hide) ln -sf $(ACTUAL_MAC_FILE) $(WCNSS_MAC_SYMLINK)
-	$(hide) touch $@
-
-include $(call all-makefiles-under,$(LOCAL_PATH))
-
 IMS_LIBS := libimscamera_jni.so libimsmedia_jni.so
-IMS_SYMLINKS := $(addprefix $(TARGET_OUT)/app/ims/lib/arm64/,$(notdir $(IMS_LIBS)))
+IMS_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR_APPS)/ims/lib/arm64/,$(notdir $(IMS_LIBS)))
 $(IMS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "IMS lib link: $@"
 	@mkdir -p $(dir $@)
@@ -79,22 +41,58 @@ $(IMS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(IMS_SYMLINKS)
 
-WV_IMAGES := widevine.b00 widevine.b01 widevine.b02 widevine.b03 widevine.mdt
-WV_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(WV_IMAGES)))
-$(WV_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "Widevine firmware link: $@"
+BT_FIRMWARE := btfw32.tlv btnv32.bin btnv32.b15
+BT_FIRMWARE_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/,$(notdir $(BT_FIRMWARE)))
+$(BT_FIRMWARE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "Creating BT firmware symlink: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+	$(hide) ln -sf /bt_firmware/image/$(notdir $@) $@
 
-FIRMWARE_FILES := firmware fsg
-FIRMWARE_SYMLINKS := $(addprefix $(TARGET_OUT)/rfs/msm/mpss/readonly/,$(notdir $(FIRMWARE_FILES)))
-$(FIRMWARE_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "Firmware link: $@"
+ALL_DEFAULT_INSTALLED_MODULES += $(BT_FIRMWARE_SYMLINKS)
+
+#########################################################################
+# Create Audio Symlink
+#########################################################################
+
+$(shell mkdir -p $(TARGET_OUT_ETC)/firmware/wcd9320)
+
+$(shell ln -s /data/misc/audio/mbhc.bin $(TARGET_OUT_ETC)/firmware/wcd9320/wcd9320_mbhc.bin)
+$(shell ln -s /data/misc/audio/wcd9320_anc.bin $(TARGET_OUT_ETC)/firmware/wcd9320/wcd9320_anc.bin)
+$(shell ln -s /data/misc/audio/wcd9320_mad_audio.bin $(TARGET_OUT_ETC)/firmware/wcd9320/wcd9320_mad_audio.bin)
+	    
+RFS_MSM_ADSP_SYMLINKS := $(TARGET_OUT)/rfs/msm/adsp/
+$(RFS_MSM_ADSP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "Creating RFS MSM ADSP folder structure: $@"
+	@rm -rf $@/*
+	@mkdir -p $(dir $@)/readonly
+	$(hide) ln -sf /data/tombstones/lpass $@/ramdumps
+	$(hide) ln -sf /persist/rfs/msm/adsp $@/readwrite
+	$(hide) ln -sf /persist/rfs/shared $@/shared
+	$(hide) ln -sf /persist/hlos_rfs/shared $@/hlos
+	$(hide) ln -sf /firmware $@/readonly/firmware
+
+RFS_MSM_MPSS_SYMLINKS := $(TARGET_OUT)/rfs/msm/mpss/
+$(RFS_MSM_MPSS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "Creating RFS MSM MPSS folder structure: $@"
+	@rm -rf $@/*
+	@mkdir -p $(dir $@)/readonly
+	$(hide) ln -sf /data/tombstones/modem $@/ramdumps
+	$(hide) ln -sf /persist/rfs/msm/mpss $@/readwrite
+	$(hide) ln -sf /persist/rfs/shared $@/shared
+	$(hide) ln -sf /persist/hlos_rfs/shared $@/hlos
+	$(hide) ln -sf /firmware $@/readonly/firmware
+
+ALL_DEFAULT_INSTALLED_MODULES += $(RFS_MSM_ADSP_SYMLINKS) $(RFS_MSM_MPSS_SYMLINKS)
+
+WCNSS_CFG := WCNSS_qcom_cfg.ini WCNSS_qcom_wlan_nv.bin WCNSS_cfg.dat
+WCNSS_CFG_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/wlan/qca_cld/,$(notdir $(WCNSS_CFG)))
+$(WCNSS_CFG_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "WCNSS configs and firmware links: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /$(notdir $@) $@
+	$(hide) ln -sf /system/etc/wifi/$(notdir $@) $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(WV_SYMLINKS) $(FIRMWARE_SYMLINKS)
+ALL_DEFAULT_INSTALLED_MODULES += $(WCNSS_CFG_SYMLINKS)
 
 endif

@@ -1,0 +1,108 @@
+on boot
+
+    # Touchscreen
+    chown system system /sys/bus/spi/devices/spi12.0/clk_enable
+    chown system system /sys/bus/spi/devices/spi12.0/wakeup_enable
+    chown system system /sys/bus/spi/devices/spi12.0/spi_prepare
+    chown system system /sys/bus/spi/devices/spi12.0/irq
+    chown system system /sys/bus/spi/devices/spi12.0/camera_input
+	
+    chown system system /sys/class/inupt/input0/glove_mode
+    chown system system /sys/class/inupt/input0/gesture_only
+    chown system system /sys/class/input/input0/wake_gesture
+    chown system system /sys/class/touch/tp_dev/ic_info
+
+    # Torch-light
+    chmod 0664 /sys/class/leds/torch-light/brightness
+    chown shell system /sys/class/leds/torch-light/brightness
+    restorecon /sys/class/leds/torch-light/brightness
+
+    # Change some node access mode for system app to access
+    chown system system /dev/rmi0
+    chmod 0664 /dev/rmi0
+    chown system system /sys/devices/soc.0/leds-qpnp-ffffff[0-9a-f]*/leds/red/brightness
+    chmod 0664 /sys/devices/soc.0/leds-qpnp-ffffff[0-9a-f]*/leds/red/brightness
+    chown system system /sys/devices/virtual/input/input5/hall_int_gpio
+    chmod 0664 /sys/devices/virtual/input/input5/hall_int_gpio
+    chown system system /sys/devices/virtual/graphics/fb0/cabc_onoff
+    chmod 0664 /sys/devices/virtual/graphics/fb0/cabc_onoff
+    chown system system /sys/class/i2c-dev/i2c-11/device/11-0036/backlight/lm36923/dimming
+    chmod 0664 /sys/class/i2c-dev/i2c-11/device/11-0036/backlight/lm36923/dimming
+    chown system system /sys/class/leds/led:torch_0/brightness
+    chmod 0660 /sys/class/leds/led:torch_0/brightness
+    chown shell system /sys/class/leds/led:torch_0/brightness
+    restorecon /sys/class/leds/led:torch_0/brightness
+    chown system system /sys/class/leds/led:torch_1/brightness
+    chmod 0660 /sys/class/leds/led:torch_1/brightness
+    chown shell system /sys/class/leds/led:torch_1/brightness
+    restorecon /sys/class/leds/led:torch_1/brightness
+
+    # Sensors
+    chown system system /sys/class/cywee_sensorhub/sensor_hub/batch
+    chown system system /sys/class/cywee_sensorhub/sensor_hub/calibrator_cmd
+    chown system system /sys/class/cywee_sensorhub/sensor_hub/calibrator_data
+    chown system system /sys/class/cywee_sensorhub/sensor_hub/delay_ms
+    chown system system /sys/class/cywee_sensorhub/sensor_hub/enable
+    chown system system /sys/class/cywee_sensorhub/sensor_hub/firmware_update_cmd
+    chown system system /sys/class/cywee_sensorhub/sensor_hub/firmware_update_data
+    chown system system /sys/class/cywee_sensorhub/sensor_hub/firmware_update_i2c
+    chown system system /sys/class/cywee_sensorhub/sensor_hub/firmware_update_status
+    chown system system /sys/class/cywee_sensorhub/sensor_hub/flush
+    chown system system /sys/class/cywee_sensorhub/sensor_hub/iio
+    chown system system /sys/class/cywee_sensorhub/sensor_hub/iio/buffer/length
+    chown system system /sys/class/cywee_sensorhub/sensor_hub/iio/buffer/enable
+    chown system system /sys/class/cywee_sensorhub/sensor_hub/iio/trigger/current_trigger
+    chown system system /sys/class/cywee_sensorhub/sensor_hub/mcu_mode
+    chown system system /sys/class/cywee_sensorhub/sensor_hub/timestamp
+    chown system system /sys/class/cywee_sensorhub/sensor_hub/version
+    chown system system /sys/class/cywee_sensorhub/sensor_hub/irc
+    chown system system /dev/iio:device0
+    chown system system /sys/class/cywee_sensorhub/sensor_hub/raw_data0
+    chown system system /sys/class/cywee_sensorhub/sensor_hub/raw_data4
+
+    chmod 644 /dev/iio:device0
+    chmod 644 /sys/bus/iio/devices/trigger0/name
+    chmod 644 /sys/bus/iio/devices/iio:device0/buffer/length
+    chmod 644 /sys/bus/iio/devices/iio:device0/buffer/enable
+    chmod 644 /sys/bus/iio/devices/iio:device0/trigger/current_trigger
+    chmod 644 /sys/class/cywee_sensorhub/sensor_hub/iio/trigger/current_trigger
+    chmod 644 /sys/class/cywee_sensorhub/sensor_hub/ap_calibrator_data_acc_rl
+    chmod 644 /sys/class/cywee_sensorhub/sensor_hub/batch
+    chmod 644 /sys/class/cywee_sensorhub/sensor_hub/calibrator_cmd
+    chmod 644 /sys/class/cywee_sensorhub/sensor_hub/calibrator_data
+    chmod 644 /sys/class/cywee_sensorhub/sensor_hub/delay_ms
+    chmod 644 /sys/class/cywee_sensorhub/sensor_hub/enable
+    chmod 644 /sys/class/cywee_sensorhub/sensor_hub/firmware_update_cmd
+    chmod 644 /sys/class/cywee_sensorhub/sensor_hub/firmware_update_data
+    chmod 644 /sys/class/cywee_sensorhub/sensor_hub/firmware_update_i2c
+    chmod 644 /sys/class/cywee_sensorhub/sensor_hub/firmware_update_status
+    chmod 644 /sys/class/cywee_sensorhub/sensor_hub/flush
+    chmod 644 /sys/class/cywee_sensorhub/sensor_hub/iio
+    chmod 644 /sys/class/cywee_sensorhub/sensor_hub/iio/buffer/length
+    chmod 644 /sys/class/cywee_sensorhub/sensor_hub/iio/buffer/enable
+    chmod 644 /sys/class/cywee_sensorhub/sensor_hub/iio/trigger/current_trigger
+    chmod 644 /sys/class/cywee_sensorhub/sensor_hub/mcu_mode
+    chmod 644 /sys/class/cywee_sensorhub/sensor_hub/timestamp
+    chmod 644 /sys/class/cywee_sensorhub/sensor_hub/version
+    chmod 644 /sys/class/cywee_sensorhub/sensor_hub/irc
+    chmod 0666   /sys/bus/msm_subsys/devices/subsys2/restart_level 
+    chmod 0666  /d/msm_subsys/modem
+    chmod 644 /sys/class/cywee_sensorhub/sensor_hub/raw_data0
+    chmod 644 /sys/class/cywee_sensorhub/sensor_hub/raw_data4
+
+    # add a cpuset for the camera daemon
+    # we want all the little cores for camera
+    mkdir /dev/cpuset/camera-daemon
+    write /dev/cpuset/camera-daemon/cpus 0
+    write /dev/cpuset/camera-daemon/mems 0
+    chown system system /dev/cpuset/camera-daemon
+    chown system system /dev/cpuset/camera-daemon/tasks
+    chmod 0664 /dev/cpuset/camera-daemon/tasks
+
+    # update foreground cpuset now that processors are up
+    # reserve CPU 3 for the top app and camera daemon
+    write /dev/cpuset/foreground/cpus 0-2,4-7
+    write /dev/cpuset/background/cpus 0
+    write /dev/cpuset/system-background/cpus 0-2
+    write /dev/cpuset/top-app/cpus 0-7
+    write /dev/cpuset/camera-daemon/cpus 0-3
