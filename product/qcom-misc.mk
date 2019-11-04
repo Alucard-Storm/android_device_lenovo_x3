@@ -35,3 +35,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # LG V10 post boot for performance improvement
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/init.qcom.post_boot.sh:/system/etc/init.qcom.post_boot.sh
+    
+# Thermal
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/thermal-engine-8992.conf:system/etc/thermal-engine-8992.conf
