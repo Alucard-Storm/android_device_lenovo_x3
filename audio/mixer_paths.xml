@@ -216,7 +216,7 @@
 	<ctl name="SPKOUTL Input 1" value="None" />
 	<ctl name="SPKOUTR Input 1" value="None" />
 	<ctl name="Speaker Digital Switch" value="0" />
-	<ctl name="Speaker Digital Volume" value="140" />
+	<ctl name="Speaker Digital Volume" value="128" />
 	<ctl name="HPOUT1L Input 2 Volume" value="32" />
 	<ctl name="HPOUT1R Input 2 Volume" value="32" />
 	<ctl name="Codec SampleRate Update" value="0" />
@@ -411,10 +411,6 @@
 		<ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia2" value="1" />
 	</path>
 
-	<path name="deep-buffer-playback2 afe-proxy">
-		<ctl name="AFE_PCM_RX Audio Mixer MultiMedia2" value="1" />
-	</path>
-
 	<path name="deep-buffer-playback speaker-protected">
 		<path name="deep-buffer-playback" />
 	</path>
@@ -500,54 +496,6 @@
 		<path name="low-latency-playback usb-headphones" />
 		<path name="low-latency-playback" />
 	</path>
-
-    <path name="audio-ull-playback">
-        <ctl name="SLIMBUS_0_RX Audio Mixer MultiMedia3" value="1" />
-    </path>
-
-    <path name="audio-ull-playback speaker-protected">
-        <path name="audio-ull-playback" />
-    </path>
-
-    <path name="audio-ull-playback headphones">
-      <path name="audio-ull-playback" />
-    </path>
-
-    <path name="audio-ull-playback speaker-and-headphones">
-        <path name="audio-ull-playback" />
-        <path name="audio-ull-playback headphones" />
-    </path>
-
-    <path name="audio-ull-playback hdmi">
-        <ctl name="HDMI Mixer MultiMedia3" value="1" />
-    </path>
-
-    <path name="audio-ull-playback bt-sco">
-        <ctl name="SEC_AUX_PCM_RX Audio Mixer MultiMedia3" value="1" />
-    </path>
-
-    <path name="audio-ull-playback bt-sco-wb">
-        <ctl name="AUX PCM SampleRate" value="16000" />
-        <path name="audio-ull-playback bt-sco" />
-    </path>
-
-    <path name="audio-ull-playback speaker-and-hdmi">
-        <path name="audio-ull-playback hdmi" />
-        <path name="audio-ull-playback" />
-    </path>
-
-    <path name="audio-ull-playback afe-proxy">
-        <ctl name="AFE_PCM_RX Audio Mixer MultiMedia3" value="1" />
-    </path>
-
-    <path name="audio-ull-playback usb-headphones">
-        <path name="audio-ull-playback afe-proxy" />
-    </path>
-
-    <path name="audio-ull-playback speaker-and-usb-headphones">
-        <path name="audio-ull-playback usb-headphones" />
-        <path name="audio-ull-playback" />
-    </path>
 
 	<path name="multi-channel-playback hdmi">
 		<ctl name="HDMI Mixer MultiMedia2" value="1" />
@@ -906,6 +854,10 @@
 
 	<path name="audio-record-karaoke-wet">
 		<ctl name="MultiMedia2 Mixer PRI_MI2S_TX" value="1" />
+	</path>
+
+	<path name="audio-record-karaoke-wet dummy">
+		<ctl name="MultiMedia2 Mixer TERT_MI2S_TX" value="1" />
 	</path>
 
 	<path name="audio-record usb-headset-mic">
@@ -1449,56 +1401,7 @@
 		<ctl name="DRC1R Input 1" value="LHPF4" />
 		<ctl name="SPKOUTL Input 1" value="DRC1L" />
 		<ctl name="SPKOUTR Input 1" value="DRC1R" />
-		<ctl name="Speaker Digital Volume" value="140" />
-		<ctl name="Speaker Digital Switch" value="1"/>
-	</path>
-
-	<path name="speaker-reverse">
-		<ctl name="Speaker VDD" value="On" />
-		<ctl name="Output Ramp Up" value="8ms/6dB" />
-		<ctl name="EQ1 Input 1 Volume" value="33" />
-		<ctl name="EQ1 Coefficients" value="0x00 0x00 0x0f 0xc8 0x03 0xfe 0x00 0xe0 0x1f 0x98 0xf0 0x67 0x04 0x09 0x01 0x98 0x1f 0xba 0xf0 0x3c 0x04 0x10 0x00 0xee 0x1f 0x3b 0xf0 0x9e 0x04 0x0a 0x02 0x72 0x02 0x53 0x04 0x95 0x40 0x00 0x0b 0x75"/>
-		<ctl name="EQ1 B1 Volume" value="12" />
-		<ctl name="EQ1 B2 Volume" value="12" />
-		<ctl name="EQ1 B3 Volume" value="15" />
-		<ctl name="EQ1 B4 Volume" value="12" />
-		<ctl name="EQ1 B5 Volume" value="10" />
-		<ctl name="EQ2 Input 1 Volume" value="32" />
-		<ctl name="EQ2 Coefficients" value=" 0x00 0x00 0x0f 0xc8 0x03 0xfe 0x00 0xe0 0x1f 0x5b 0xf0 0x73 0x04 0x05 0x01 0xc8 0x1d 0x96 0xf1 0xba 0x04 0x0b 0x06 0xd6 0x15 0x04 0xf2 0x54 0x04 0x0b 0x09 0x38 0x05 0x8c 0x05 0x63 0x40 0x00 0x0b 0x75"/>
-		<ctl name="EQ2 B1 Volume" value="12" />
-		<ctl name="EQ2 B2 Volume" value="12" />
-		<ctl name="EQ2 B3 Volume" value="14" />
-		<ctl name="EQ2 B4 Volume" value="12" />
-		<ctl name="EQ2 B5 Volume" value="15" />
-		<ctl name="EQ3 Input 1 Volume" value="33" />
-		<ctl name="EQ3 Coefficients" value="0x00 0x00 0x0f 0xc8 0x03 0xfe 0x00 0xe0 0x1f 0x70 0xf0 0x8f 0x04 0x0d 0x02 0x36 0x1f 0xa5 0xf0 0x39 0x03 0xfe 0x00 0xe3 0x1a 0x04 0xf1 0x1a 0x04 0x0a 0x04 0x5d 0x02 0x53 0x04 0x95 0x40 0x00 0x0b 0x75"/>
-		<ctl name="EQ3 B1 Volume" value="12" />
-		<ctl name="EQ3 B2 Volume" value="12" />
-		<ctl name="EQ3 B3 Volume" value="9" />
-		<ctl name="EQ3 B4 Volume" value="11" />
-		<ctl name="EQ3 B5 Volume" value="9" />
-		<ctl name="EQ4 Coefficients" value="0x00 0x00 0x0f 0xc8 0x03 0xfe 0x00 0xe0 0x1f 0xb9 0xf0 0x3d 0x04 0x05 0x00 0xf2 0x1f 0xb9 0xf0 0x37 0x04 0x11 0x00 0xda 0x1f 0x29 0xf0 0xab 0x04 0x0d 0x02 0xa5 0x05 0x58 0x05 0x56 0x40 0x00 0x0b 0x75"/>
-		<ctl name="EQ4 B1 Volume" value="12" />
-		<ctl name="EQ4 B2 Volume" value="16" />
-		<ctl name="EQ4 B3 Volume" value="12" />
-		<ctl name="EQ4 B4 Volume" value="9" />
-		<ctl name="EQ4 B5 Volume" value="15" />
-		<ctl name="LHPF3 Mode" value="High-pass"/>
-		<ctl name="LHPF3 Coefficients" value="0xf0,0x3a"/>
-		<ctl name="LHPF4 Mode" value="High-pass"/>
-		<ctl name="LHPF4 Coefficients" value="0xf0,0x3a"/>
-		<ctl name="DRC1" value="0x00 0x58 0x09 0x33 0x04 0x20 0x00 0x82 0x03 0x9f"/>
-		<ctl name="EQ1 Input 1" value="AIF2RX2" />
-		<ctl name="EQ3 Input 1" value="AIF2RX1" />
-		<ctl name="EQ2 Input 1" value="EQ1" />
-		<ctl name="EQ4 Input 1" value="EQ3" />
-		<ctl name="LHPF3 Input 1" value="EQ2"/>
-		<ctl name="LHPF4 Input 1" value="EQ4"/>
-		<ctl name="DRC1L Input 1" value="LHPF3" />
-		<ctl name="DRC1R Input 1" value="LHPF4" />
-		<ctl name="SPKOUTL Input 1" value="DRC1L" />
-		<ctl name="SPKOUTR Input 1" value="DRC1R" />
-		<ctl name="Speaker Digital Volume" value="140" />
+		<ctl name="Speaker Digital Volume" value="128" />
 		<ctl name="Speaker Digital Switch" value="1"/>
 	</path>
 
@@ -1564,7 +1467,7 @@
 		<ctl name="LHPF4 Input 1" value="DSP1.2"/>
 		<ctl name="SPKOUTL Input 1" value="LHPF3" />
 		<ctl name="SPKOUTR Input 1" value="LHPF4" />
-		<ctl name="Speaker Digital Volume" value="140 140" />
+		<ctl name="Speaker Digital Volume" value="124 124" />
 		<ctl name="Speaker Digital Switch" value="1"/>
 	</path>
 
@@ -1579,7 +1482,7 @@
 	<path name="speaker-ext-1-liquid">
 		<ctl name="SPKOUTL Input 1" value="AIF2RX1" />
 		<ctl name="SPKOUTR Input 1" value="AIF2RX2" />
-		<ctl name="Speaker Digital Volume" value="140" />
+		<ctl name="Speaker Digital Volume" value="118" />
 		<ctl name="Speaker Digital Switch" value="1"/>
 	</path>
 
@@ -1612,14 +1515,14 @@
 	<path name="speaker-mono">
 	   <ctl name="SPKOUTL Input 1" value="AIF2RX1" />
 	   <ctl name="SPKOUTR Input 1" value="AIF2RX1" />
-	   <ctl name="Speaker Digital Volume" value="140" />
+	   <ctl name="Speaker Digital Volume" value="118" />
 	   <ctl name="Speaker Digital Switch" value="1"/>
 	</path>
 
 	<path name="voice-speaker-protected">
 	   <ctl name="SPKOUTL Input 1" value="AIF2RX1" />
 	   <ctl name="SPKOUTR Input 1" value="AIF2RX1" />
-	   <ctl name="Speaker Digital Volume" value="140" />
+	   <ctl name="Speaker Digital Volume" value="118" />
 	   <ctl name="Speaker Digital Switch" value="1"/>
 	</path>
 
@@ -1719,15 +1622,12 @@
 
 	<path name="karaoke-common">
 	   <ctl name="DSP2 Firmware" value="KaraokeMusic" />
-	   <ctl name="DSP3 Firmware" value="KaraokeVocals" />
 	   <ctl name="Input Ramp Up" value="15ms/6dB" />
 	   <ctl name="Output Ramp Up" value="15ms/6dB" />
 	   <ctl name="Sample Rate 3" value="48kHz" />
 	   <ctl name="FX Rate" value="SYNCCLK rate 3" />
 	   <ctl name="DSP2 Rate" value="SYNCCLK rate 3" />
-	   <ctl name="DSP3 Rate" value="SYNCCLK rate 3" />
 	   <ctl name="In Rate" value="SYNCCLK rate 3" />
-	   <ctl name="EQ3 Input 1 Volume" value="29" />	   
 	   <ctl name="EQ3 Coefficients" value="0x00 0x00 0x0f 0xc8 0x03 0xfe 0x00 0xe0 0x1f 0x83 0xf0 0x73 0x04 0x0a 0x01 0xc8 0x1f 0x74 0xf0 0x73 0x04 0x0a 0x01 0xc8 0x10 0x84 0xf2 0xd6 0x04 0x0a 0x0b 0x3b 0x05 0x8c 0x05 0x63 0x40 0x00 0x0b 0x75" />
 	   <ctl name="EQ3 B1 Volume" value="12" />
 	   <ctl name="EQ3 B2 Volume" value="14" />
@@ -1744,94 +1644,104 @@
 	   <ctl name="LHPF3 Coefficients" value="0xf0 0x40" />
 	   <ctl name="LHPF4 Mode" value="High-pass" />
 	   <ctl name="LHPF4 Coefficients" value="0xf0 0x1d" />
-	   <ctl name="HPOUT1L Input 2 Volume" value="41" />
-	   <ctl name="HPOUT1R Input 2 Volume" value="41" />
+	   <ctl name="EQ4 Input 1" value="EQ3" />
+	   <ctl name="LHPF3 Input 1" value="EQ4" />
+	   <ctl name="LHPF4 Input 1" value="LHPF3" />
+	   <ctl name="HPOUT1L Input 2" value="DSP3.1" />
+	   <ctl name="HPOUT1R Input 2" value="DSP3.1" />
+	   <ctl name="DSP2L Input 1" value="AIF2RX1" />
+	   <ctl name="DSP2R Input 1" value="AIF2RX2" />
+	   <ctl name="HPOUT1L Input 1" value="DSP2.1" />
+	   <ctl name="HPOUT1R Input 1" value="DSP2.2" />
+	   <ctl name="HPOUT1L Input 2 Volume" value="35" />
+	   <ctl name="HPOUT1R Input 2 Volume" value="35" />
 	   <ctl name="HPOUT1 Digital Volume" value="126 126" />
 	   <ctl name="HPOUT1 Digital Switch" value="1 1" />
-	   <ctl name="DRC1" value="1 122 7 51 8 40 0 132 0 202" />
+	</path>
+
+	<path name="headset-karaoke">
+	   <ctl name="EQ3 Input 1" value="IN1R" />
+	   <ctl name="EQ3 Input 1 Volume" value="29" />
+	   <ctl name="DSP2 Aux 1" value="IN1R" />
+	   <path name="karaoke-common" />
+	</path>
+
+	<path name="headphones-karaoke">
+	   <ctl name="EQ3 Input 1" value="IN1L" />
+	   <ctl name="EQ3 Input 1 Volume" value="29" />
+	   <ctl name="DSP2 Aux 1" value="IN1L" />
+	   <ctl name="Int Mic Switch" value="1" />
+	   <path name="karaoke-common" />
+	</path>
+
+	<path name="karaoke-record" >
 		<ctl name="DRC2" value="0x01 0x78 0x07 0x33 0x08 0x28 0x02 0xd6 0x00 0xca" />
 		<ctl name="AIF2TX1 Input 1 Volume" value="32" />
 		<ctl name="AIF2TX2 Input 1 Volume" value="32" />
+		<ctl name="AIF2TX1 Input 1" value="DRC1L" />
+		<ctl name="AIF2TX2 Input 1" value="DRC1L" />
 		<ctl name="AIF1TX1 Input 1 Volume" value="45" />
 		<ctl name="AIF1TX2 Input 1 Volume" value="45" />
 		<ctl name="DRC2L Input 1 Volume" value="38" />
 		<ctl name="DRC2L Input 2 Volume" value="38" />
 		<ctl name="DRC2R Input 1 Volume" value="38" />
 		<ctl name="DRC2R Input 2 Volume" value="38" />
-      <!-- music path -->
-	   <ctl name="DSP2L Input 1" value="AIF2RX1" />
-	   <ctl name="DSP2R Input 1" value="AIF2RX2" />
-	   <ctl name="HPOUT1L Input 1" value="DSP2.1" />
-	   <ctl name="HPOUT1R Input 1" value="DSP2.2" />
-	   <!-- vocal path -->
-	   <ctl name="EQ4 Input 1" value="EQ3" />
-	   <ctl name="LHPF3 Input 1" value="EQ4" />
-	   <ctl name="LHPF4 Input 1" value="LHPF3" />
-	   <ctl name="DRC1L Input 1" value="LHPF4" />
-	   <ctl name="DSP3L Input 1" value="DRC1L" />
-	   <ctl name="HPOUT1L Input 2" value="DSP3.1" />
-	   <ctl name="HPOUT1R Input 2" value="DSP3.1" />
-      <!-- dry recording path -->
-		<ctl name="AIF2TX1 Input 1" value="DRC1L" />
-		<ctl name="AIF2TX2 Input 1" value="DRC1L" />
-      <!-- wet recording path -->
 		<ctl name="DRC2L Input 1" value="DSP3.2" />
-		<ctl name="DRC2R Input 1" value="DSP3.2" />
 		<ctl name="DRC2L Input 2" value="DSP2.1" />
+		<ctl name="DRC2R Input 1" value="DSP3.2" />
 		<ctl name="DRC2R Input 2" value="DSP2.2" />
 		<ctl name="AIF1TX1 Input 1" value="DRC2L" />
 		<ctl name="AIF1TX2 Input 1" value="DRC2R"/>
 	</path>
 
-	<path name="headset-karaoke">
-	   <path name="karaoke-common" />
+	<path name="headset-mic-karaoke">
 	   <ctl name="IN1R Volume" value="20" />
 	   <ctl name="IN1R Digital Volume" value="128" />
-	   <ctl name="EQ3 Input 1" value="IN1R" />
-	   <ctl name="DSP2 Aux 1" value="IN1R" />
-	</path>
-
-	<path name="headphones-karaoke">
-	   <path name="karaoke-common" />
-	   <ctl name="IN1L Volume" value="17" />
-	   <ctl name="IN1L Digital Volume" value="128" />
-	   <ctl name="EQ3 Input 1" value="IN1L" />
-	   <ctl name="DSP2 Aux 1" value="IN1L" />
-	   <ctl name="Int Mic Switch" value="1" />
-	</path>
-
-
-	<path name="headset-mic-karaoke">
+	   <ctl name="DSP3 Firmware" value="KaraokeVocals" />
+	   <ctl name="DSP3 Rate" value="SYNCCLK rate 3" />
+	   <ctl name="DRC1" value="1 122 7 51 8 40 0 132 0 202" />
+	   <ctl name="DRC1L Input 1" value="LHPF4" />
+	   <ctl name="DSP3L Input 1" value="DRC1L" />
+	   <path name="karaoke-record" />
 	</path>
 
 	<path name="handset-mic-karaoke">
+	   <ctl name="IN1L Volume" value="17" />
+	   <ctl name="IN1L Digital Volume" value="128" />
+	   <ctl name="DSP3 Firmware" value="KaraokeVocals" />
+	   <ctl name="DSP3 Rate" value="SYNCCLK rate 3" />
+	   <ctl name="DRC1" value="1 122 7 51 8 40 0 132 0 202" />
+	   <ctl name="DRC1L Input 1" value="LHPF4" />
+	   <ctl name="DSP3L Input 1" value="DRC1L" />
+	   <ctl name="Int Mic Switch" value="1" />
+	   <path name="karaoke-record" />
 	</path>
 
 	<path name="speaker-karaoke">
-      <path name="speaker" />
-      <ctl name="Input Ramp Up" value="15ms/6dB" />
-      <ctl name="IN1L Volume" value="20" />
-      <ctl name="IN1L Digital Volume" value="128" />
-      <ctl name="DRC2" value="1 122 7 51 8 40 0 132 0 202" />
-      <ctl name="LHPF1 Mode" value="High-pass" />
-      <ctl name="LHPF2 Mode" value="High-pass" />
-      <ctl name="LHPF1 Coefficients" value="240 64" />
-      <ctl name="LHPF2 Coefficients" value="240 64" />
-      <ctl name="LHPF1 Input 1" value="IN1L" />
-      <ctl name="LHPF2 Input 1" value="LHPF1" />
-      <ctl name="DRC2L Input 1" value="LHPF2" />
-      <ctl name="AIF2TX1 Input 1 Volume" value="32" />
-      <ctl name="AIF2TX2 Input 1 Volume" value="32" />
-      <ctl name="AIF2TX1 Input 1" value="DRC2L" />
-      <ctl name="AIF2TX2 Input 1" value="DRC2L" />
-      <ctl name="AIF1TX1 Input 1" value="DRC1L" />
-      <ctl name="AIF1TX2 Input 1" value="DRC1R" />
-      <ctl name="AIF1TX1 Input 2" value="DRC2L"/>
-      <ctl name="AIF1TX2 Input 2" value="DRC2L"/>
-      <ctl name="Int Mic Switch" value="1" />
+		<path name="speaker" />
 	</path>
 
 	<path name="speaker-mic-karaoke">
+		<ctl name="Input Ramp Up" value="15ms/6dB" />
+		<ctl name="IN1L Volume" value="20" />
+		<ctl name="IN1L Digital Volume" value="128" />
+		<ctl name="DRC2" value="1 122 7 51 8 40 0 132 0 202" />
+		<ctl name="LHPF1 Mode" value="High-pass" />
+		<ctl name="LHPF2 Mode" value="High-pass" />
+		<ctl name="LHPF1 Coefficients" value="240 64" />
+		<ctl name="LHPF2 Coefficients" value="240 64" />
+		<ctl name="LHPF1 Input 1" value="IN1L" />
+		<ctl name="LHPF2 Input 1" value="LHPF1" />
+		<ctl name="DRC2L Input 1" value="LHPF2" />
+		<ctl name="AIF2TX1 Input 1 Volume" value="32" />
+		<ctl name="AIF2TX2 Input 1 Volume" value="32" />
+		<ctl name="AIF2TX1 Input 1" value="DRC2L" />
+		<ctl name="AIF2TX2 Input 1" value="DRC2L" />
+		<ctl name="AIF1TX1 Input 1" value="DRC1L" />
+		<ctl name="AIF1TX2 Input 1" value="DRC1R" />
+		<ctl name="AIF1TX1 Input 2" value="DRC2L"/>
+		<ctl name="AIF1TX2 Input 2" value="DRC2L"/>
+        <ctl name="Int Mic Switch" value="1" />
 	</path>
 
 	<path name="ess-headphones">
@@ -2013,11 +1923,12 @@
 		<path name="handset" />
 	</path>
 
+
 	<path name="voice-speaker">
 		<ctl name="Speaker VDD" value="On" />
 		<ctl name="Sample Rate 3" value="8kHz" />
 		<ctl name="ISRC1 FSL" value="SYNCCLK rate 3" />
-		<ctl name="Speaker Digital Volume" value="140" />
+		<ctl name="Speaker Digital Volume" value="124" />
 		<ctl name="DRC1" value="0x06 0x68 0x03 0x33 0x07 0x58 0x05 0x36 0x03 0x3c" />
 		<ctl name="DSP4 Rate" value="SYNCCLK rate 3" />
 		<ctl name="DSP4 Firmware" value="Ez2HearSpeaker Rx" />
@@ -2089,11 +2000,27 @@
 		<ctl name="AIF2TX1 Input 1" value="DRC2L" />
 	</path>
 
+	<path name="voice-headset">
+		<ctl name="Sample Rate 3" value="8kHz" />
+		<ctl name="ISRC1 FSL" value="SYNCCLK rate 3" />
+		<ctl name="HPOUT1 Digital Volume" value="128" />
+		<ctl name="DSP4 Rate" value="SYNCCLK rate 3" />
+		<ctl name="DSP4 Firmware" value="Ez2HearHeadset Rx" />
+		<ctl name="Output Ramp Up" value="15ms/6dB" />
+		<ctl name="ISRC1DEC1 Input" value="AIF2RX1" />
+		<ctl name="DSP4R Input 1" value="ISRC1DEC1" />
+		<ctl name="ISRC1INT2 Input" value="DSP4.6" />
+		<ctl name="HPOUT1L Input 1" value="ISRC1INT2" />
+		<ctl name="HPOUT1R Input 1" value="ISRC1INT2" />
+		<ctl name="HPOUT1 Mono Switch" value="1" />
+		<ctl name="HPOUT1 Digital Switch" value="1"/>
+	</path>
+
 	<path name="voice-headphones">
 		<ctl name="Sample Rate 3" value="8kHz" />
 		<ctl name="ISRC1 FSL" value="SYNCCLK rate 3" />
 		<ctl name="DSP4 Rate" value="SYNCCLK rate 3" />
-		<ctl name="DSP4 Firmware" value="Ez2HearHeadset Rx" />
+		<ctl name="DSP4 Firmware" value="Ez2HearHeadphone Rx" />
 		<ctl name="Output Ramp Up" value="15ms/6dB" />
 		<ctl name="ISRC1DEC1 Input" value="AIF2RX1" />
 		<ctl name="DSP4R Input 1" value="ISRC1DEC1" />
@@ -2161,7 +2088,7 @@
 		<ctl name="Speaker VDD" value="On" />
 		<ctl name="Sample Rate 3" value="16kHz" />
 		<ctl name="ISRC1 FSL" value="SYNCCLK rate 3" />
-		<ctl name="Speaker Digital Volume" value="140" />
+		<ctl name="Speaker Digital Volume" value="124" />
 		<ctl name="DRC1" value="0x06 0x68 0x03 0x33 0x07 0x58 0x05 0x36 0x03 0x3c" />
 		<ctl name="DSP4 Rate" value="SYNCCLK rate 3" />
 		<ctl name="DSP4 Firmware" value="Ez2HearVoipSpeaker Rx" />
@@ -2207,6 +2134,23 @@
 		<ctl name="Int Mic Switch" value="1" />
 	</path>
 
+
+	<path name="voip-headset">
+		<ctl name="Sample Rate 3" value="16kHz" />
+		<ctl name="ISRC1 FSL" value="SYNCCLK rate 3" />
+		<ctl name="HPOUT1 Digital Volume" value="128" />
+		<ctl name="DSP4 Rate" value="SYNCCLK rate 3" />
+		<ctl name="DSP4 Firmware" value="Ez2HearVoipHeadset Rx" />
+		<ctl name="Output Ramp Up" value="15ms/6dB" />
+		<ctl name="ISRC1DEC1 Input" value="AIF2RX1" />
+		<ctl name="DSP4R Input 1" value="ISRC1DEC1" />
+		<ctl name="ISRC1INT2 Input" value="DSP4.6" />
+		<ctl name="HPOUT1L Input 1" value="ISRC1INT2" />
+		<ctl name="HPOUT1R Input 1" value="ISRC1INT2" />
+		<ctl name="HPOUT1 Mono Switch" value="1" />
+		<ctl name="HPOUT1 Digital Switch" value="1"/>
+	</path>
+
 	<path name="voip-headset-mic">
 		<ctl name="Sample Rate 3" value="16kHz" />
 		<ctl name="ISRC1 FSL" value="SYNCCLK rate 3" />
@@ -2237,151 +2181,7 @@
 		<ctl name="Sample Rate 3" value="16kHz" />
 		<ctl name="ISRC1 FSL" value="SYNCCLK rate 3" />
 		<ctl name="DSP4 Rate" value="SYNCCLK rate 3" />
-		<ctl name="DSP4 Firmware" value="Ez2HearVoipHeadset Rx" />
-		<ctl name="Output Ramp Up" value="15ms/6dB" />
-		<ctl name="ISRC1DEC1 Input" value="AIF2RX1" />
-		<ctl name="DSP4R Input 1" value="ISRC1DEC1" />
-		<ctl name="ISRC1INT2 Input" value="DSP4.6" />
-		<ctl name="HPOUT1L Input 1" value="ISRC1INT2" />
-		<ctl name="HPOUT1R Input 1" value="ISRC1INT2" />
-		<ctl name="HPOUT1 Mono Switch" value="1" />
-		<ctl name="HPOUT1 Digital Switch" value="1"/>
-		<ctl name="HPOUT1 Digital Volume" value="128" />
-	</path>
-
-	<path name="wb-handset-mic">
-		<ctl name="Sample Rate 3" value="16kHz" />
-		<ctl name="Input Ramp Up" value="15ms/6dB" />
-		<ctl name="ISRC1 FSL" value="SYNCCLK rate 3" />
-		<ctl name="DSP2 Rate" value="SYNCCLK rate 3" />
-		<ctl name="DSP3 Rate" value="SYNCCLK rate 3" />
-		<ctl name="DSP2 Firmware" value="Ez2HearWbHandset Tx" />
-		<ctl name="DSP3 Firmware" value="Ez2HearWbHandset Tx" />
-		<ctl name="DRC2" value="0x00 0x18 0x09 0x33 0x00 0x10 0x02 0x52 0x00 0x00" />
-		<ctl name="IN1L Volume" value="14" />
-		<ctl name="IN2R Volume" value="14" />
-		<ctl name="IN1L Digital Volume" value="128" />
-		<ctl name="IN2R Digital Volume" value="128" />
-		<ctl name="IN1L HPF Switch" value="1" />
-		<ctl name="IN2R HPF Switch" value="1" />
-		<ctl name="ISRC1DEC2 Input" value="IN2R" />
-		<ctl name="ISRC1DEC3 Input" value="IN1L" />
-		<ctl name="AEC Loopback" value="SPKOUTL" />
-		<ctl name="DSP3 Aux 6" value="ISRC1DEC3" />
-		<ctl name="DSP3 Aux 3" value="ISRC1DEC2" />
-		<!-- enable DSP2 share memory for DSP3 and add with virtual interface -->
-		<ctl name="DSP2R Input 1" value="IN4L" />
-		<ctl name="HPOUT2R Input 1" value="DSP2.1" />
-		<!-- end DSP2 share memory for DSP3 and add with virtual interface -->
-		<ctl name="ISRC1DEC4 Input" value="AEC" />
-		<ctl name="DSP3L Input 1" value="ISRC1DEC4" />
-		<ctl name="DSP3R Input 1" value="ISRC1DEC1" />
-		<ctl name="ISRC1INT1 Input" value="DSP3.1" />
-		<ctl name="DRC2L Input 1" value="ISRC1INT1" />
-		<ctl name="AIF2TX1 Input 1" value="DRC2L" />
-		<ctl name="Int Mic Switch" value="1" />
-	</path>
-
-	<path name="wb-handset">
-		<ctl name="Speaker VDD" value="On" />
-		<ctl name="Sample Rate 3" value="16kHz" />
-		<ctl name="Output Ramp Up" value="15ms/6dB" />
-		<ctl name="ISRC1 FSL" value="SYNCCLK rate 3" />
-		<ctl name="DSP4 Rate" value="SYNCCLK rate 3" />
-		<ctl name="DSP4 Firmware" value="Ez2HearWbHandset Rx" />
-		<ctl name="DRC1" value="0x00 0x20 0x0b 0x33 0x09 0x58 0x50 0x00 0x47 0x4e" />
-		<ctl name="ISRC1DEC1 Input" value="AIF2RX1" />
-		<ctl name="DSP4R Input 1" value="ISRC1DEC1" />
-		<ctl name="ISRC1INT2 Input" value="DSP4.6" />
-		<ctl name="DRC1L Input 1" value="ISRC1INT2" />
-		<ctl name="SPKOUTL Input 1" value="DRC1L" />
-		<ctl name="Speaker Digital Volume" value="128" />
-		<ctl name="Speaker Digital Switch" value="1 0" />
-		<ctl name="SPK_INP_RGAIN" value="0X00,0X02" />
-		<ctl name="SPK_DAC_DSP_GAIN" value="0X1E,0X23" />
-	</path>
-
-	<path name="wb-speaker">
-		<ctl name="Speaker VDD" value="On" />
-		<ctl name="Sample Rate 3" value="16kHz" />
-		<ctl name="ISRC1 FSL" value="SYNCCLK rate 3" />
-		<ctl name="Speaker Digital Volume" value="124" />
-		<ctl name="DRC1" value="0x06 0x68 0x03 0x33 0x07 0x58 0x05 0x36 0x03 0x3c" />
-		<ctl name="DSP4 Rate" value="SYNCCLK rate 3" />
-		<ctl name="DSP4 Firmware" value="Ez2HearWbSpeaker Rx" />
-		<ctl name="Output Ramp Up" value="15ms/6dB" />
-		<!-- end DSP2 share memory for DSP3 and add with virtual interface -->
-		<ctl name="ISRC1DEC1 Input" value="DRC1L" />
-		<ctl name="DSP4R Input 1" value="ISRC1DEC1" />
-		<ctl name="ISRC1INT2 Input" value="DSP4.6" />
-		<ctl name="DRC1L Input 1" value="AIF2RX1" />
-		<ctl name="SPKOUTR Input 1" value="ISRC1INT2" />
-		<ctl name="SPKOUTL Input 1" value="ISRC1INT2" />
-		<ctl name="Speaker Digital Switch" value="1" />
-	</path>
-
-	<path name="wb-speaker-mic">
-		<ctl name="Sample Rate 3" value="16kHz" />
-		<ctl name="ISRC1 FSL" value="SYNCCLK rate 3" />
-		<ctl name="DSP2 Rate" value="SYNCCLK rate 3" />
-		<ctl name="DSP3 Rate" value="SYNCCLK rate 3" />
-		<ctl name="DSP2 Firmware" value="Ez2HearWbSpeaker Tx" />
-		<ctl name="DSP3 Firmware" value="Ez2HearWbSpeaker Tx" />
-		<ctl name="IN1L Digital Volume" value="128" />
-		<ctl name="IN2R Digital Volume" value="128" />
-		<ctl name="IN1L Volume" value="14" />
-		<ctl name="IN2R Volume" value="14" />
-		<ctl name="DRC2" value="0x01 0x28 0x09 0x33 0x04 0x20 0x02 0x50 0x03 0x3c" />
-		<ctl name="Input Ramp Up" value="15ms/6dB" />
-		<ctl name="ISRC1DEC2 Input" value="IN2R" />
-		<ctl name="ISRC1DEC3 Input" value="IN1L" />
-		<ctl name="DSP3 Aux 6" value="ISRC1DEC3" />
-		<ctl name="DSP3 Aux 3" value="ISRC1DEC2" />
-		<ctl name="ISRC1INT1 Input" value="DSP3.1" />
-		<!-- enable DSP2 share memory for DSP3 and add with virtual interface -->
-		<ctl name="DSP2R Input 1" value="IN4L" />
-		<ctl name="HPOUT2R Input 1" value="DSP2.1" />
-		<ctl name="AEC Loopback" value="SPKOUTL" />
-		<ctl name="ISRC1DEC4 Input" value="AEC" />
-		<ctl name="DSP3L Input 1" value="ISRC1DEC4" />
-		<ctl name="DRC2L Input 1" value="ISRC1INT1" />
-		<ctl name="AIF2TX1 Input 1" value="DRC2L" />
-		<ctl name="IN1L HPF Switch" value="1" />
-		<ctl name="IN2R HPF Switch" value="1" />
-		<ctl name="Int Mic Switch" value="1" />
-	</path>
-
-	<path name="wb-headset-mic">
-		<ctl name="Sample Rate 3" value="16kHz" />
-		<ctl name="ISRC1 FSL" value="SYNCCLK rate 3" />
-		<ctl name="DSP2 Rate" value="SYNCCLK rate 3" />
-		<ctl name="DSP3 Rate" value="SYNCCLK rate 3" />
-		<ctl name="DSP2 Firmware" value="Ez2HearWbHeadset Tx" />
-		<ctl name="DSP3 Firmware" value="Ez2HearWbHeadset Tx" />
-		<ctl name="Input Ramp Up" value="15ms/6dB" />
-		<ctl name="IN1R Volume" value="14" />
-		<ctl name="DRC2" value="0x00 0x18 0x09 0x33 0x00 0x18 0x02 0x52 0x00 0x00" />
-		<ctl name="ISRC1DEC3 Input" value="IN1R" />
-		<ctl name="DSP3 Aux 6" value="ISRC1DEC3" />
-		<ctl name="DSP3 Aux 3" value="None" />
-		<ctl name="ISRC1INT1 Input" value="DSP3.1" />
-		<!-- enable DSP2 share memory for DSP3 and add with virtual interface -->
-		<ctl name="DSP2R Input 1" value="IN4L" />
-		<ctl name="HPOUT2R Input 1" value="DSP2.1" />
-		<!-- end DSP2 share memory for DSP3 and add with virtual interface -->
-		<ctl name="AEC Loopback" value="HPOUT1L" />
-		<ctl name="ISRC1DEC4 Input" value="AEC" />
-		<ctl name="DSP3L Input 1" value="ISRC1DEC4" />
-		<ctl name="IN1R HPF Switch" value="1" />
-		<ctl name="DRC2L Input 1" value="ISRC1INT1" />
-		<ctl name="AIF2TX1 Input 1" value="DRC2L" />
-	</path>
-
-	<path name="wb-headphones">
-		<ctl name="Sample Rate 3" value="16kHz" />
-		<ctl name="ISRC1 FSL" value="SYNCCLK rate 3" />
-		<ctl name="DSP4 Rate" value="SYNCCLK rate 3" />
-		<ctl name="DSP4 Firmware" value="Ez2HearWbHeadset Rx" />
+		<ctl name="DSP4 Firmware" value="Ez2HearVoipHeadphone Rx" />
 		<ctl name="Output Ramp Up" value="15ms/6dB" />
 		<ctl name="ISRC1DEC1 Input" value="AIF2RX1" />
 		<ctl name="DSP4R Input 1" value="ISRC1DEC1" />
@@ -2672,14 +2472,6 @@
 
 	<path name="listen-handset-mic">
 	</path>
-
-    <path name="unprocessed-handset-mic">
-        <path name="handset-mic" />
-    </path>
-
-    <path name="unprocessed-mic">
-        <path name="unprocessed-handset-mic" />
-    </path>
 
 	<!-- Added for ADSP testfwk -->
 	<path name="ADSP testfwk">
