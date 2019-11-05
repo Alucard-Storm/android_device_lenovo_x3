@@ -168,7 +168,7 @@ TARGET_POWERHAL_SET_INTERACTIVE_EXT := $(DEVICE_PATH)/power/power_ext.c
 BOARD_USES_QCOM_HARDWARE := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/fstab.qcom
 
 # Use Snapdragon LLVM, if available
 TARGET_USE_SDCLANG := true
@@ -202,9 +202,6 @@ WPA_SUPPLICANT_VERSION           := VER_0_8_X
 # Misc
 BOARD_GLOBAL_CFLAGS += -DUSE_RIL_VERSION_11
 BOARD_GLOBAL_CPPFLAGS += -DUSE_RIL_VERSION_11
-
-# QC Time Service
-BOARD_USES_QC_TIME_SERVICES := true
 
 # Added to indicate that protobuf-c is supported in this build
 PROTOBUF_SUPPORTED := true
