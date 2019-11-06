@@ -49,20 +49,19 @@ LOCAL_C_INCLUDES := \
     $(LOCAL_PATH)/stack/common \
     frameworks/native/include/media/hardware \
     frameworks/native/include/media/openmax \
-    hardware/qcom/media-$(TARGET_QCOM_MEDIA_VARIANT)/libstagefrighthw \
+    $(call project-path-for,qcom-media)/libstagefrighthw \
     system/media/camera/include \
     $(LOCAL_PATH)/../mm-image-codec/qexif \
     $(LOCAL_PATH)/../mm-image-codec/qomx_core \
     $(LOCAL_PATH)/util \
-    $(TARGET_OUT_HEADERS)/qcom/display-$(TARGET_QCOM_MEDIA_VARIANT)
+    $(TARGET_OUT_HEADERS)/qcom/display
 
 #HAL 1.0 Include paths
 LOCAL_C_INCLUDES += \
     frameworks/native/include/media/hardware \
-    device/nextbit/ether/camera/QCamera2/HAL
+    $(call project-path-for,qcom-camera)/QCamera2/HAL
 
-LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
-LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+LOCAL_HEADER_LIBRARIES := generated_kernel_headers
 
 LOCAL_SHARED_LIBRARIES := libcamera_client liblog libhardware libutils libcutils libdl
 LOCAL_SHARED_LIBRARIES += libmmcamera_interface libmmjpeg_interface libui libcamera_metadata

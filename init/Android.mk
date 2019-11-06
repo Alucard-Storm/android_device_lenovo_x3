@@ -10,6 +10,4 @@ LOCAL_CPPFLAGS := -Wall
 LOCAL_SRC_FILES := init_x3.cpp
 LOCAL_MODULE := libinit_x3
 
-LOCAL_STATIC_LIBRARIES := libselinux
-
 include $(BUILD_STATIC_LIBRARY)

@@ -17,6 +17,3 @@ Battery | Non-removable Li-Po 3500 mAh battery
 Display | 1080 x 1920 pixels, 5.5 inches IPS
 Camera  | Rear 21 MP PDAF, dual-LED (dual tone) flash; Front 8 MP fixed-focus
 
-## Not Working
-1. Call Echo
-2. IR

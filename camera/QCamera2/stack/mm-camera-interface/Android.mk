@@ -1,7 +1,5 @@
 LOCAL_PATH := $(call my-dir)
 
-include $(LOCAL_PATH)/../../../common.mk
-
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
@@ -25,15 +23,14 @@ LOCAL_COPY_HEADERS += ../common/cam_types.h
 LOCAL_C_INCLUDES := \
     $(LOCAL_PATH)/inc \
     $(LOCAL_PATH)/../common \
-    hardware/qcom/media-$(TARGET_QCOM_MEDIA_VARIANT)/mm-core/inc \
+    $(call project-path-for,qcom-media)/mm-core/inc \
     system/media/camera/include
 
-LOCAL_C_INCLUDES += $(kernel_includes)
-LOCAL_ADDITIONAL_DEPENDENCIES := $(common_deps)
 
 LOCAL_CFLAGS += -Wall -Wextra -Werror
 
 LOCAL_MODULE := libmmcamera_interface
+LOCAL_HEADER_LIBRARIES := generated_kernel_headers
 LOCAL_SHARED_LIBRARIES := libdl libcutils liblog
 LOCAL_MODULE_TAGS := optional
 LOCAL_VENDOR_MODULE := true

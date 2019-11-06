@@ -15,17 +15,18 @@
 #
 
 # Boot animation
-TARGET_BOOTANIMATION_SIZE := 1080p
-TARGET_SCREEN_WIDTH := 1080
-TARGET_SCREEN_HEIGHT := 1920
+TARGET_SCREEN_HEIGHT := 1080
+TARGET_SCREEN_WIDTH := 1920
+TARGET_BOOTANIMATION_HALF_RES := true
 
 # Inherit 64-bit configs
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_m.mk)
 
-# Inherit some common omni stuff.
+# Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Inherit device configuration
@@ -41,8 +42,6 @@ PRODUCT_MANUFACTURER := Lenovo
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
 	PRODUCT_NAME=x3
-
-PRODUCT_GMS_CLIENTID_BASE := android-lenovo
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
 	PRIVATE_BUILD_DESC="X3c70-user 6.0.1 MMB29M VIBEUI_V3.1_1626_5.611.1_ST_X3c70 release-keys"
