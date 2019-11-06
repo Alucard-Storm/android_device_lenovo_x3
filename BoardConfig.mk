@@ -207,6 +207,9 @@ include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += \
     $(PLATFORM_PATH)/sepolicy
 
+# Sensors
+USE_SENSOR_MULTI_HAL := true
+
 # WiFi
 BOARD_HAS_QCOM_WLAN              := true
 BOARD_HOSTAPD_DRIVER             := NL80211
