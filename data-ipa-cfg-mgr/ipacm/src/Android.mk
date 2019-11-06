@@ -1,3 +1,5 @@
+ifneq (,$(filter $(QCOM_BOARD_PLATFORMS),$(TARGET_BOARD_PLATFORM)))
+ifneq (, $(filter aarch64 arm arm64, $(TARGET_ARCH)))
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
@@ -14,8 +16,7 @@ LOCAL_C_INCLUDES += external/libxml2/include
 LOCAL_C_INCLUDES += external/libnetfilter_conntrack/include
 LOCAL_C_INCLUDES += external/libnfnetlink/include
 
-LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
-LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+LOCAL_HEADER_LIBRARIES := generated_kernel_headers
 
 LOCAL_CFLAGS := -DFEATURE_IPA_ANDROID
 ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
@@ -55,29 +56,17 @@ LOCAL_SHARED_LIBRARIES += libxml2
 LOCAL_SHARED_LIBRARIES += libnfnetlink
 LOCAL_SHARED_LIBRARIES += libnetfilter_conntrack
 
-LOCAL_VENDOR_MODULE := true
-LOCAL_CLANG := true
+LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_EXECUTABLES)
 include $(BUILD_EXECUTABLE)
-
-################################################################################
-
-define ADD_TEST
-
-include $(CLEAR_VARS)
-LOCAL_MODULE       := $1
-LOCAL_SRC_FILES    := $1
-LOCAL_MODULE_CLASS := ipacm
-LOCAL_MODULE_TAGS  := debug
-LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)
-include $(BUILD_PREBUILT)
-
-endef
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := IPACM_cfg.xml
 LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)
+LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_ETC)
 LOCAL_MODULE_TAGS := optional
 LOCAL_SRC_FILES := $(LOCAL_MODULE)
 LOCAL_MODULE_OWNER := ipacm
 include $(BUILD_PREBUILT)
+
+endif # $(TARGET_ARCH)
+endif
