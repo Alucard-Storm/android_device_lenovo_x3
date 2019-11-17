@@ -314,7 +314,7 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
     dhcpcd.conf \
     wificond \
-    hostapd \
+    hostpad \
     libwpa_client \
     wpa_supplicant \
     wpa_supplicant.conf
@@ -324,9 +324,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf\
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/qca_cld/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini \
-    $(LOCAL_PATH)/wifi/hostapd.accept:system/etc/hostapd/hostapd.accept \
-    $(LOCAL_PATH)/wifi/hostapd.conf:system/etc/hostapd/hostapd_default.conf \
-    $(LOCAL_PATH)/wifi/hostapd.deny:system/etc/hostapd/hostapd.deny \
+    $(LOCAL_PATH)/wifi/hostpad.accept:system/etc/hostpad/hostpad.accept \
+    $(LOCAL_PATH)/wifi/hostpad.conf:system/etc/hostpad/hostpad_default.conf \
+    $(LOCAL_PATH)/wifi/hostpad.deny:system/etc/hostpad/hostpad.deny \
 
 
 # HIDL
