@@ -204,7 +204,7 @@ TARGET_RIL_VARIANT := caf
 BOARD_GLOBAL_CFLAGS += -DUSE_RIL_VERSION_11
 BOARD_GLOBAL_CPPFLAGS += -DUSE_RIL_VERSION_11
 
-# SELinx6
+# SELinux
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += \
     $(PLATFORM_PATH)/sepolicy
