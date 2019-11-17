@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    device/lenovo/x3/lineage.mk
+    device/lenovo/x3/dot.mk

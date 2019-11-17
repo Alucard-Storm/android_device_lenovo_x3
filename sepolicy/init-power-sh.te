@@ -1,0 +1,30 @@
+type init-power-sh, domain;
+type init-power-sh_exec, exec_type, file_type;
+
+init_daemon_domain(init-power-sh)
+
+allow init-power-sh proc_kernel_sched:file { open write };
+
+allow init-power-sh self:capability { chown net_admin };
+
+allow init-power-sh sysfs:dir { open read };
+
+allow init-power-sh sysfs_cpu_boost:dir search;
+allow init-power-sh sysfs_cpu_boost:file { open write };
+
+allow init-power-sh sysfs_devfreq:dir search;
+allow init-power-sh sysfs_devfreq:file { getattr open read write };
+
+allow init-power-sh sysfs_devices_system_cpu:file { setattr write };
+
+allow init-power-sh sysfs_kgsl:file { open write };
+
+allow init-power-sh sysfs_msm_perf:dir search;
+allow init-power-sh sysfs_msm_perf:file { open write };
+
+allow init-power-sh sysfs_msm_power:dir search;
+allow init-power-sh sysfs_msm_power:file { open write };
+
+allow init-power-sh sysfs_thermal:file write;
+
+allow init-power-sh vendor_toolbox_exec:file execute_no_trans;
