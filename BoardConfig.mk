@@ -200,9 +200,11 @@ TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/rootdir/fstab.qcom
 
 # RIL
-TARGET_RIL_VARIANT := caf
+TARGET_RIL_VARIANT := caf 
+BOARD_GLOBAL_CFLAGS += -DUSE_RIL_VERSION_11
+BOARD_GLOBAL_CPPFLAGS += -DUSE_RIL_VERSION_11
 
-# SELinux
+# SELinx6
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += \
     $(PLATFORM_PATH)/sepolicy
@@ -214,8 +216,8 @@ BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_qcwcn
 BOARD_WLAN_DEVICE                := qcwcn
 BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_qcwcn
-
-TARGET_USES_QCOM_WCNSS_QMI       := true
+BOARD_HAS_QCOM_WLAN_SDK          := true
+TARGET_USES_QCOM_WCNSS_QMI      := true
 TARGET_USES_WCNSS_MAC_ADDR_REV   := true
 
 WIFI_DRIVER_FW_PATH_STA          := "sta"
