@@ -35,6 +35,7 @@ PRODUCT_PACKAGES += \
     android.hardware.soundtrigger@2.0-impl \
     android.hardware.soundtrigger@2.0-service \
     audio.a2dp.default \
+    audio_amplifier.msm8992 \
     audio.primary.msm8992 \
     audio_policy.msm8992 \
     audio.r_submix.default \
@@ -65,11 +66,8 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.device@1.0-impl \
     android.hardware.camera.provider@2.4-impl \
-    Snap \
-    libshim_atomic \
-    mm-qcamera-app \
+    camera.device@3.2-impl \
     camera.msm8992
 
 # Charger
@@ -81,7 +79,6 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.composer@2.1-impl \
-    android.hardware.graphics.composer@2.1-service \
     android.hardware.graphics.mapper@2.0-impl \
     android.hardware.memtrack@1.0-impl \
     copybit.msm8992 \
@@ -276,14 +273,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl
 
-# Shims
-PRODUCT_PACKAGES += \
-    libshims_ims
-
-TARGET_LD_SHIM_LIBS :=  \
-	/system/vendor/lib/libmmcamera2_stats_algorithm.so|libshim_atomic.so \
-	/system/vendor/lib64/libril-qc-qmi-1.so|rild_socket.so
-
 # Telephony
 PRODUCT_PACKAGES += \
     qti-telephony-common \
@@ -333,6 +322,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
     android.hidl.manager@1.0-java
+
+# setup dalvik vm configs.
+$(call inherit-product, vendor/omni/config/phone-xxxhdpi-3072-dalvik-heap.mk)
+
+# setup base hwui configs
+$(call inherit-product, vendor/omni/config/phone-xxxhdpi-3072-hwui-memory.mk)
 
 # Inherit proprietary device parts
 $(call inherit-product, vendor/lenovo/x3/x3-vendor.mk)

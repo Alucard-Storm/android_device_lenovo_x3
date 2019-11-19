@@ -15,4 +15,5 @@
 #
 
 PRODUCT_MAKEFILES := \
-    device/lenovo/x3/dot.mk
+    device/lenovo/x3/omni_x3.mk
+

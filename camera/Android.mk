@@ -1,3 +1,3 @@
-ifeq ($(call my-dir),$(call project-path-for,qcom-camera))
+ifeq ($(call my-dir),device/lenovo/x3/camera)
     include $(call all-subdir-makefiles)
 endif

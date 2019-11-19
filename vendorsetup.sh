@@ -14,5 +14,5 @@
 # limitations under the License.
 #
 
-add_lunch_combo dot_x3-userdebug
+add_lunch_combo omni_x3-userdebug
 

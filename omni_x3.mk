@@ -23,16 +23,21 @@ TARGET_SCREEN_HEIGHT := 1920
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
 # Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
 # Inherit some common stuff.
-$(call inherit-product, vendor/dot/config/common.mk)
+$(call inherit-product, vendor/omni/config/common.mk)
+
+# Inherit APNs list
+$(call inherit-product, vendor/omni/config/gsm.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/lenovo/x3/device.mk)
 
+PRODUCT_PACKAGE_OVERLAYS += vendor/omni/overlay/CarrierConfig
+
 ## Device identifier. This must come after all inclusions
-PRODUCT_NAME := dot_x3
+PRODUCT_NAME := omni_x3
 PRODUCT_DEVICE := x3
 
 PRODUCT_BRAND := Lenovo

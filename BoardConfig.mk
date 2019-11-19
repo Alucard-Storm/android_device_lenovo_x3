@@ -92,6 +92,7 @@ TARGET_USES_QCOM_MM_AUDIO := true
 AUDIO_FEATURE_ENABLED_DS2_DOLBY_DAP := true
 
 # Bluetooth
+TARGET_QCOM_BLUETOOTH_VARIANT := caf-msm8998
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(PLATFORM_PATH)/bluetooth
 BOARD_HAVE_BLUETOOTH_QCOM := true
 QCOM_BT_USE_BTNV := true
@@ -206,6 +207,7 @@ BOARD_GLOBAL_CPPFLAGS += -DUSE_RIL_VERSION_11
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
+include vendor/omni/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += \
     $(PLATFORM_PATH)/sepolicy
 
@@ -217,7 +219,7 @@ BOARD_WLAN_DEVICE                := qcwcn
 BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_qcwcn
 BOARD_HAS_QCOM_WLAN_SDK          := true
-TARGET_USES_QCOM_WCNSS_QMI      := true
+#TARGET_USES_QCOM_WCNSS_QMI      := true
 TARGET_USES_WCNSS_MAC_ADDR_REV   := true
 
 WIFI_DRIVER_FW_PATH_STA          := "sta"
