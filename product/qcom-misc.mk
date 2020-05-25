@@ -30,7 +30,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	
 # MTP
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.lenovo.series=Lenovo X3
+    ro.lenovo.series=Lenovo_X3
 
 # LG V10 post boot for performance improvement
 PRODUCT_COPY_FILES += \
