@@ -26,33 +26,18 @@
 <!-- IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                          -->
 <audio_platform_info>
     <acdb_ids>
-        <device name="SND_DEVICE_OUT_SPEAKER_PROTECTED" acdb_id="140"/>
-        <device name="SND_DEVICE_OUT_SPEAKER" acdb_id="90" />
-        <device name="SND_DEVICE_OUT_VOICE_SPEAKER" acdb_id="19" />
-        <device name="SND_DEVICE_OUT_HEADPHONES" acdb_id="94" />
-        <device name="SND_DEVICE_IN_HANDSET_MIC" acdb_id="48" />
-        <device name="SND_DEVICE_IN_CAMCORDER_MIC" acdb_id="18" />
-        <device name="SND_DEVICE_IN_VOICE_REC_MIC" acdb_id="18" />
-        <device name="SND_DEVICE_IN_VOICE_HEADSET_MIC" acdb_id="25" />
-    </acdb_ids>
-    <bit_width_configs>
-        <device name="SND_DEVICE_OUT_SPEAKER" bit_width="28"/>
-    </bit_width_configs>
-<device_names>
         <!-- Output devices -->
-        <device name="SND_DEVICE_OUT_HEADPHONES" alias="headphones" />
-        <device name="SND_DEVICE_OUT_VOICE_HANDSET" alias="voice-handset" />
-        <device name="SND_DEVICE_OUT_VOICE_SPEAKER" alias="voice-speaker" />
-        <device name="SND_DEVICE_OUT_VOICE_HEADPHONES" alias="voice-headphones" />
-        <device name="SND_DEVICE_OUT_VOICE_TTY_FULL_HEADPHONES" alias="voice-tty-full-headphones" />
-        <device name="SND_DEVICE_OUT_VOICE_TTY_VCO_HEADPHONES" alias="voice-tty-vco-headphones" />
-        <device name="SND_DEVICE_OUT_VOICE_TTY_HCO_HANDSET" alias="voice-tty-hco-handset" />
-        <device name="SND_DEVICE_OUT_VOIP_HANDSET" alias="voip-handset" />
-        <device name="SND_DEVICE_OUT_VOIP_SPEAKER" alias="voip-speaker" />
-        <device name="SND_DEVICE_OUT_VOIP_HEADPHONES" alias="voip-headphones" />
-		<!-- Input devices -->
-		<device name="SND_DEVICE_IN_SPEAKER_MIC" acdb_id="8"/>
-		<device name="SND_DEVICE_IN_VOICE_SPEAKER_MIC" acdb_id="8"/>
-    </device_names>
-</audio_platform_info>
+        <device name="SND_DEVICE_OUT_HEADPHONES" acdb_id="9"/>
+        <device name="SND_DEVICE_OUT_LINE" acdb_id="77"/>
+        <device name="SND_DEVICE_OUT_SPEAKER" acdb_id="15"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_AND_HDMI" acdb_id="18"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES" acdb_id="10"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_AND_LINE" acdb_id="77"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_REVERSE" acdb_id="15"/>
+        <device name="SND_DEVICE_OUT_VOICE_LINE" acdb_id="22"/>
 
+        <!-- Input devices -->
+        <device name="SND_DEVICE_IN_SPEAKER_MIC" acdb_id="34"/>
+        <device name="SND_DEVICE_IN_VOICE_SPEAKER_MIC" acdb_id="89"/>
+    </acdb_ids>
+</audio_platform_info>
