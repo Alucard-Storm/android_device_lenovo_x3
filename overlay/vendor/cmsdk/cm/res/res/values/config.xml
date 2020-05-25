@@ -13,10 +13,15 @@
 -->
 <resources>
 
+    <!-- Default wi-fi hotspot ssid -->
+    <string name="config_wifiHotSpotSsid" translatable="false">Lenovo X3</string>
+    <!-- Default wi-fi direct name -->
+    <string name="config_wifiDirectName" translatable="false">lenovo X3</string>
+
     <!-- Default value for proximity check on screen wake
      NOTE ! - Enable for devices that have a fast response proximity sensor (ideally < 300ms)-->
     <bool name="config_proximityCheckOnWake">true</bool>
-    <integer name="config_proximityCheckTimeout">100</integer>
+    <integer name="config_proximityCheckTimeout">200</integer>
     <bool name="config_proximityCheckOnWakeEnabledByDefault">true</bool>
 
     <!-- Ambient lux at which to enable outdoor mode when LiveDisplay is enabled -->
@@ -35,6 +40,5 @@
 
          For example, a device support pulsating, RGB notification and
          battery LEDs would set this config to 11. -->
-    <integer name="config_deviceLightCapabilities">40</integer>
-
+    <integer name="config_deviceLightCapabilities" translatable="false">0</integer>
 </resources>
