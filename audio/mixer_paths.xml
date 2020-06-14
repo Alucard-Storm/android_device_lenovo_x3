@@ -2479,6 +2479,11 @@
 	<path name="camcorder-mic">
 		<path name="handset-mic" />
 	</path>
+	
+	<path name="camcorder-stereo-dmic">
+		<path name="handset-mic" />
+		<path name="speaker-mic" />
+	</path>
 
 	<path name="hdmi-tx">
 		<path name="handset-mic" />
