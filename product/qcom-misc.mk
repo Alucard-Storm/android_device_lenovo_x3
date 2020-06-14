@@ -9,6 +9,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libshims_ims \
     libshim_ims-camera
+    
 # try not to use big cores during dexopt
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.boot-dex2oat-threads=4 \

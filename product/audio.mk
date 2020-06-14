@@ -47,8 +47,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.fluence.voicecall=false \
     persist.audio.fluence.voicerec=false \
     persist.audio.fluence.speaker=true \
-    persist.audio.ssr.3mic=false \
-    ro.qc.sdk.audio.ssr=false \
+    persist.audio.ssr.3mic=true \
+    ro.qc.sdk.audio.ssr=true \
     persist.speaker.prot.enable=true
 
 # audio prop
