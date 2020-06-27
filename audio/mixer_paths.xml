@@ -1349,7 +1349,7 @@
 	<path name="adc3">
 		<ctl name="Input Ramp Up" value="8ms/6dB" />
 		<ctl name="IN2L Volume" value="20" />
-		<ctl name="IN2L Digital Volume" value="128" />
+		<ctl name="IN2L Digital Volume" value="126" />
 		<ctl name="AIF2TX1 Input 1" value="IN2L" />
 		<ctl name="AIF2TX2 Input 1" value="IN2L" />
 	</path>
@@ -1357,7 +1357,7 @@
 	<path name="adc4">
 		<ctl name="Input Ramp Up" value="8ms/6dB" />
 		<ctl name="IN2R Volume" value="20" />
-		<ctl name="IN2R Digital Volume" value="128" />
+		<ctl name="IN2R Digital Volume" value="126" />
 		<ctl name="AIF2TX1 Input 1" value="IN2R" />
 		<ctl name="AIF2TX2 Input 1" value="IN2R" />
 	</path>
@@ -1388,7 +1388,7 @@
 
 	<path name="speaker-low-latency">
 		<ctl name="Speaker VDD" value="On" />
-		<ctl name="Speaker Digital Volume" value="128" />
+		<ctl name="Speaker Digital Volume" value="126" />
 		<ctl name="LHPF3 Mode" value="High-pass"/>
 		<ctl name="LHPF3 Coefficients" value="0xf0,0x3a"/>
 		<ctl name="LHPF4 Mode" value="High-pass"/>
@@ -1633,11 +1633,11 @@
 		<ctl name="IN1L Volume" value="16" />
 		<ctl name="IN2R Volume" value="16" />
 		<ctl name="IN2L Volume" value="16" />
-		<ctl name="AIF2TX1 Input 1 Volume" value="35" />
-		<ctl name="AIF2TX2 Input 1 Volume" value="35" />
-		<ctl name="IN2R Digital Volume" value="128" />
-		<ctl name="IN2L Digital Volume" value="128" />
-		<ctl name="IN1L Digital Volume" value="128" />
+		<ctl name="AIF2TX1 Input 1 Volume" value="32" />
+		<ctl name="AIF2TX2 Input 1 Volume" value="32" />
+		<ctl name="IN2R Digital Volume" value="126" />
+		<ctl name="IN2L Digital Volume" value="126" />
+		<ctl name="IN1L Digital Volume" value="126" />
 		<ctl name="DSP3L Input 1" value="IN2L" />
 		<ctl name="DSP3R Input 1" value="IN2R" />
 		<ctl name="DSP3 Aux 5" value="IN1L" />
@@ -1807,7 +1807,7 @@
       <path name="speaker" />
       <ctl name="Input Ramp Up" value="15ms/6dB" />
       <ctl name="IN1L Volume" value="20" />
-      <ctl name="IN1L Digital Volume" value="128" />
+      <ctl name="IN1L Digital Volume" value="126" />
       <ctl name="DRC2" value="1 122 7 51 8 40 0 132 0 202" />
       <ctl name="LHPF1 Mode" value="High-pass" />
       <ctl name="LHPF2 Mode" value="High-pass" />
@@ -1898,7 +1898,7 @@
 	<path name="headset-mic">
 	   <ctl name="Input Ramp Up" value="8ms/6dB" />
 	   <ctl name="IN1R Volume" value="20" />
-	   <ctl name="IN1R Digital Volume" value="128" />
+	   <ctl name="IN1R Digital Volume" value="126" />
 	   <ctl name="DRC2" value="0x01 0x20 0x09 0x0b 0x05 0x58 0x51 0x04 0x47 0x7d"/>
 	   <ctl name="DRC2L Input 1" value="IN1R" />
 	   <ctl name="DRC2R Input 1" value="IN1R" />
@@ -2035,7 +2035,7 @@
 		<ctl name="DSP3 Rate" value="SYNCCLK rate 3" />
 		<ctl name="DSP2 Firmware" value="Ez2HearSpeaker Tx" />
 		<ctl name="DSP3 Firmware" value="Ez2HearSpeaker Tx" />
-		<ctl name="IN1L Digital Volume" value="128" />
+		<ctl name="IN1L Digital Volume" value="126" />
 		<ctl name="IN2R Digital Volume" value="128" />
 		<ctl name="IN1L Volume" value="14" />
 		<ctl name="IN2R Volume" value="14" />
@@ -2242,7 +2242,7 @@
 		<ctl name="HPOUT1R Input 1" value="ISRC1INT2" />
 		<ctl name="HPOUT1 Mono Switch" value="1" />
 		<ctl name="HPOUT1 Digital Switch" value="1"/>
-		<ctl name="HPOUT1 Digital Volume" value="128" />
+		<ctl name="HPOUT1 Digital Volume" value="126" />
 	</path>
 
 	<path name="wb-handset-mic">
@@ -2450,7 +2450,7 @@
 	<path name="speaker-and-anc-headphones-liquid">
 		<path name="anc-headphones" />
 		<ctl name="HPOUT1 Digital Switch" value="1"/>
-		<ctl name="HPOUT1 Digital Volume" value="128" />
+		<ctl name="HPOUT1 Digital Volume" value="126" />
 		<ctl name="HPOUT1L Input 1" value="AIF2RX1" />
 		<ctl name="HPOUT1R Input 1" value="AIF2RX1" />
 		<ctl name="Speaker Digital Switch" value="1"/>
@@ -2509,7 +2509,7 @@
 
 	<path name="aanc-handset-mic">
 	   <ctl name="HPOUT1 Digital Switch" value="1"/>
-	   <ctl name="HPOUT1 Digital Volume" value="128" />
+	   <ctl name="HPOUT1 Digital Volume" value="126" />
 	   <ctl name="HPOUT1L Input 1" value="AIF2RX1" />
 	   <ctl name="HPOUT1R Input 1" value="AIF2RX1" />
 	   <ctl name="Speaker Digital Switch" value="1"/>
@@ -2688,7 +2688,7 @@
 	<!-- APT test mixer settings -->
 	<path name="BUILTINMIC_HEADSET">
 		<ctl name="IN1L Volume" value="20" />
-		<ctl name="IN1L Digital Volume" value="128" />
+		<ctl name="IN1L Digital Volume" value="126" />
 		<ctl name="HPOUT1 Digital Switch" value="1"/>
 		<ctl name="HPOUT1 Digital Volume" value="112" />
 		<ctl name="HPOUT1L Input 1" value="IN1L" />
@@ -2698,7 +2698,7 @@
 
 	<path name="ANCMIC_HEADSET">
 		<ctl name="IN2L Volume" value="20" />
-		<ctl name="IN2L Digital Volume" value="128" />
+		<ctl name="IN2L Digital Volume" value="126" />
 		<ctl name="HPOUT1 Digital Switch" value="1"/>
 		<ctl name="HPOUT1 Digital Volume" value="112" />
 		<ctl name="HPOUT1L Input 1" value="IN2L" />
@@ -2707,7 +2707,7 @@
 
 	<path name="BACKMIC_HEADSET">
 		<ctl name="IN2R Volume" value="20" />
-		<ctl name="IN2R Digital Volume" value="128" />
+		<ctl name="IN2R Digital Volume" value="126" />
 		<ctl name="HPOUT1 Digital Switch" value="1"/>
 		<ctl name="HPOUT1 Digital Volume" value="112" />
 		<ctl name="HPOUT1L Input 1" value="IN2R" />
@@ -2717,7 +2717,7 @@
 	<path name="WIREDHEADSET_EARPIECE">
 	   <ctl name="Speaker VDD" value="On" />
 		<ctl name="IN1R Volume" value="20" />
-		<ctl name="IN1R Digital Volume" value="128" />
+		<ctl name="IN1R Digital Volume" value="126" />
 	   <ctl name="SPKOUTL Input 1" value="IN1R" />
 	   <ctl name="Speaker Digital Switch" value="1 0"/>
 	   <ctl name="Speaker Digital Volume" value="112" />
@@ -2726,7 +2726,7 @@
 	<path name="WIREDHEADSET_SPEAKER">
 	   <ctl name="Speaker VDD" value="On" />
 		<ctl name="IN1R Volume" value="20" />
-		<ctl name="IN1R Digital Volume" value="128" />
+		<ctl name="IN1R Digital Volume" value="126" />
 	   <ctl name="SPKOUTL Input 1" value="IN1R" />
 	   <ctl name="SPKOUTR Input 1" value="IN1R" />
 	   <ctl name="Speaker Digital Switch" value="1"/>
@@ -2736,7 +2736,7 @@
 	<path name="WIREDHEADSET_TOPSPEAKER">
 	   <ctl name="Speaker VDD" value="On" />
 		<ctl name="IN1R Volume" value="20" />
-		<ctl name="IN1R Digital Volume" value="128" />
+		<ctl name="IN1R Digital Volume" value="126" />
 	   <ctl name="SPKOUTL Input 1" value="IN1R" />
 	   <ctl name="Speaker Digital Switch" value="1 0"/>
 	   <ctl name="Speaker Digital Volume" value="128" />
@@ -2745,7 +2745,7 @@
 	<path name="WIREDHEADSET_BOTSPEAKER">
 	   <ctl name="Speaker VDD" value="On" />
 		<ctl name="IN1R Volume" value="20" />
-		<ctl name="IN1R Digital Volume" value="128" />
+		<ctl name="IN1R Digital Volume" value="126" />
 	   <ctl name="SPKOUTR Input 1" value="IN1R" />
 	   <ctl name="Speaker Digital Switch" value="0 1"/>
 	   <ctl name="Speaker Digital Volume" value="128" />
@@ -2753,7 +2753,7 @@
 
 	<path name="HEADSET_LOOPBACK">
 		<ctl name="IN1R Volume" value="20" />
-		<ctl name="IN1R Digital Volume" value="128" />
+		<ctl name="IN1R Digital Volume" value="126" />
 		<ctl name="HPOUT1 Digital Switch" value="1"/>
 		<ctl name="HPOUT1 Digital Volume" value="112" />
 		<ctl name="HPOUT1L Input 1" value="IN1R" />
