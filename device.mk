@@ -35,7 +35,5 @@ $(call inherit-product, frameworks/native/build/phone-xxhdpi-3072-dalvik-heap.mk
 # setup base hwui configs
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-3072-hwui-memory.mk)
 
-$(call inherit-product,build/target/product/verity.mk)
-
 # Call the proprietary setup
 $(call inherit-product-if-exists, vendor/lenovo/x3/x3-vendor.mk)
